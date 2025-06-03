@@ -5,9 +5,11 @@ import lexicon.se.model.Student;
 import lexicon.se.util.UserInputService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Component
+@Service
 
 public class StudentManagementConsoleImpl implements StudentManagement {
 
