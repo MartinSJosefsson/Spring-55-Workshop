@@ -17,11 +17,11 @@ public class ScannerInputService implements UserInputService {
 
     @Override
     public String getString() {
-        return "";
+        return scanner.nextLine().trim();
     }
 
     @Override
     public int getInt() {
-        return 0;
+        return Integer.parseInt(scanner.nextLine());
     }
 }

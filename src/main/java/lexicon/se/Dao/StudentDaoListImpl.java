@@ -18,21 +18,25 @@ public class StudentDaoListImpl implements StudentDao {
 
     @Override
     public Student save(Student student) {
-        return null;
+        students.add(student);
+        return student;
     }
 
     @Override
     public Student find(int id) {
-        return null;
+       Student foundStudent = students.stream().filter(student -> student.getId() == id).findFirst().orElse(null);
+       return foundStudent;
     }
 
     @Override
-    public List<Student> finsAll() {
-        return List.of();
+    public List<Student> findAll() {
+        return students.stream().toList();
     }
 
     @Override
     public void delete(int id) {
+        Student foundStudent = students.stream().filter(student -> student.getId() == id).findFirst().orElse(null);
+        students.remove(foundStudent);
 
     }
 }

@@ -25,31 +25,49 @@ public class StudentManagementConsoleImpl implements StudentManagement {
 
     @Override
     public Student create(){
-        return null;
+        System.out.print("Enter student id: ");
+        int studentId = scannerService.getInt();
+        System.out.print("Enter student name: ");
+        String studentName = scannerService.getString();
+
+        Student student = new Student(studentId, studentName);
+        return studentDao.save(student);
+
     }
 
     @Override
     public Student saved(Student student){
-        return null;
+        studentDao.save(student);
+        return studentDao.save(student);
     }
 
     @Override
     public Student find(int id){
-        return null;
+        return studentDao.find(id);
     }
 
     @Override
     public Student remove(int id){
-        return null;
+        Student studentFound = studentDao.find(id);
+        if(studentFound != null){
+            studentDao.delete(id);
+        }
+        return studentFound;
     }
 
     @Override
     public List<Student> findAll(){
-        return null;
+        return studentDao.findAll();
     }
 
     @Override
     public Student edit(Student student){
+        Student studentFound = studentDao.find(student.getId());
+        if(studentFound != null){
+            studentFound.setName(student.getName());
+            return studentFound;
+        }
+
         return null;
     }
 }
