@@ -1,6 +1,7 @@
 package lexicon.se.Dao;
 
 import lexicon.se.model.Student;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -9,6 +10,11 @@ import java.util.List;
 
 public class StudentDaoListImpl implements StudentDao {
 
+    List<Student> students;
+    @Autowired
+    public StudentDaoListImpl(List<Student> students) {
+        this.students = students;
+    }
 
     @Override
     public Student save(Student student) {
